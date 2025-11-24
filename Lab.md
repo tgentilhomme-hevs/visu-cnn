@@ -21,3 +21,5 @@ Complete the code in `src/run.py`:
 - Train the model for 30 epochs on the MNIST dataset: `python -m src.run`
 
 - Try to add Dropout Layers after each convolutional layers, batch norm layers, or change the learning rate and see how it affects the training and the feature maps.
+
+- Do not forget to commit and push your changes regularly!
