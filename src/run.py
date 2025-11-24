@@ -68,13 +68,8 @@ class SmallCNN(nn.Module):
         # Second conv layer: 8 -> 8 channels, kernel 3x3, padding accordingly
         # Third conv layer: 8 -> 8 channels, kernel 3x3, padding accordingly
         # Each conv layer followed by ReLU and MaxPool2d(2)
-        ### BEGIN SOLUTION
-        self.conv1 = nn.Conv2d(1, 8, kernel_size=3, padding=1)    # -> (N,8,28,28)
-        self.conv2 = nn.Conv2d(8, 8, kernel_size=3, padding=1)    # -> (N,8,14,14) after pool
-        self.conv3 = nn.Conv2d(8, 8, kernel_size=3, padding=1)    # -> (N,8,7,7) after pool
-        self.relu = nn.ReLU()
-        self.pool = nn.MaxPool2d(2)  # halves spatial size
-        ### END SOLUTION
+        # YOUR SOLUTION HERE
+        assert False, "Not implemented yet!"
 
         # After conv/pool:
         # conv1 -> pool -> 14x14, 8 channels
@@ -83,24 +78,12 @@ class SmallCNN(nn.Module):
         # Use global average pooling → 8 features
         self.feature_dim = 8
         # Final FC layer, from 8 features to num_classes
-        ### BEGIN SOLUTION
-        self.fc = nn.Linear(self.feature_dim, num_classes)
-        ### END SOLUTION
+        # YOUR SOLUTION HERE
+        assert False, "Not implemented yet!"
 
     def forward(self, x):
-        ### BEGIN SOLUTION
-        x1 = self.relu(self.conv1(x))   # (N,8,28,28)
-        p1 = self.pool(x1)              # (N,8,14,14)
-
-        x2 = self.relu(self.conv2(p1))  # (N,8,14,14)
-        p2 = self.pool(x2)              # (N,8,7,7)
-
-        x3 = self.relu(self.conv3(p2))  # (N,8,7,7)
-
-        # Global average pooling
-        feat = x3.mean(dim=(2, 3))      # (N,8)
-        out = self.fc(feat)             # (N,10)
-        ### END SOLUTION
+        # YOUR SOLUTION HERE
+        assert False, "Not implemented yet!"
         return out
 
     def forward_feature_maps(self, x):
@@ -126,9 +109,8 @@ class SmallCNN(nn.Module):
 model = SmallCNN()
 
 # Move model to device
-### BEGIN SOLUTION
-model = model.to(device)
-### END SOLUTION
+# YOUR SOLUTION HERE
+assert False, "Not implemented yet!"
 
 # -----------------------------
 # 4. Loss & Optimizer
@@ -138,10 +120,8 @@ model = model.to(device)
 # Use CrossEntropyLoss and Adam optimizer
 # criterion = ...
 # optimizer = ...
-### BEGIN SOLUTION
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=lr)
-### END SOLUTION
+# YOUR SOLUTION HERE
+assert False, "Not implemented yet!"
 
 
 # -----------------------------
@@ -158,10 +138,8 @@ def evaluate(model, loader, device):
             x = x.to(device)
             y = y.to(device)
             # Forward pass + loss
-            ### BEGIN SOLUTION
-            logits = model(x)
-            loss = criterion(logits, y)
-            ### END SOLUTION
+            # YOUR SOLUTION HERE
+            assert False, "Not implemented yet!"
             loss_sum += loss.item() * x.size(0)
 
             preds = logits.argmax(dim=1)
@@ -188,13 +166,8 @@ for epoch in range(1, num_epochs + 1):
 
         # Forward + backward + optimize
         # Don't forget to zero gradients, backward and optimizer step
-        ### BEGIN SOLUTION
-        optimizer.zero_grad()
-        logits = model(x)
-        loss = criterion(logits, y)
-        loss.backward()
-        optimizer.step()
-        ### END SOLUTION
+        # YOUR SOLUTION HERE
+        assert False, "Not implemented yet!"
 
         running_loss += loss.item() * x.size(0)
 
