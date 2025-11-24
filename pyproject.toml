@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "minidl"
+version = "0.1.0"
+description = "My CNN"
+readme = "README.md"
+authors = [{ name = "Théophile Gentilhomme" }]
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.26"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pytest-cov>=4"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
